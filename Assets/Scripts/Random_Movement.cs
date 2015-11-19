@@ -3,31 +3,66 @@ using System.Collections;
 
 public class Random_Movement : MonoBehaviour {
 
-	public static float xMov, yMov, deciderX, deciderY;
+	public float speed;
+
+
 	// Use this for initialization
 	void Start () {
-	deciderX = Random.Range (-1.0f, 1.0f);
-		deciderY = Random.Range (-1.0f, 1.0f);
-			if (deciderX < 0.0f) 
-			xMov = Random.Range (-70.0f, -30.0f);
-		    else 
-			xMov = Random.Range (30.0f, 70.0f);
-		
-//		    if (deciderY < 0.0f) 
-//			yMov = Random.Range (-7.0f, -3.0f);
-//		else
-//			yMov = Random.Range (3.0f, 7.0f);
-
-			
+		delay(3.0f);
+		Debug.Log ("Delay finish");
+		randMovi ();
+		Debug.Log ("MovementPerformed");
 	}
 
 	
 	// Update is called once per frame
 	void Update () {
-		gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2 (xMov, yMov) * Time.deltaTime;
-
-
 	}
+
+	IEnumerator delay(float sec)
+	{
+		yield return new WaitForSeconds (sec);
+	}
+
+	void randMovi ()
+	{
+		float randX = Random.Range (-10.0f, 10.0f);
+		float randY = Random.Range (-10.0f, 10.0f);
+
+		if (randX<=0)
+		{
+			gameObject.GetComponent<Rigidbody2D>().AddForce((new Vector2(Random.Range (-10.0f,-3.0f),0)) * speed * Time.deltaTime);
+		}
+		else
+		{
+			gameObject.GetComponent<Rigidbody2D>().AddForce((new Vector2(Random.Range (3.0f,10.0f),0)) * speed * Time.deltaTime);
+		}
+		if (randY<=0)
+		{
+			gameObject.GetComponent<Rigidbody2D>().AddForce((new Vector2(0,Random.Range (-10.0f,-3.0f))) * speed * Time.deltaTime);
+		}
+		else
+		{
+			gameObject.GetComponent<Rigidbody2D>().AddForce((new Vector2(0,Random.Range (3.0f,10.0f))) * speed * Time.deltaTime);
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 }
