@@ -46,12 +46,9 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\EnemyTap.cs" />
-     <Compile Include="Assets\Scripts\PlayerCollision.cs" />
      <Compile Include="Assets\Scripts\Random_Movement.cs" />
      <Compile Include="Assets\Scripts\ReRum.cs" />
      <Compile Include="Assets\Scripts\WallCollision.cs" />
-     <Compile Include="Assets\Scripts\WinCondition.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
